@@ -1,86 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1D00BCD4"
     android:orientation="horizontal"
     tools:context=".MainActivity">
 
 
-<!--    分成左右两边，左边是四个摄像头画面-->
+    <!--    分成左右两边，左边是四个摄像头画面-->
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
         <!--        四个摄像头画面-->
 
         <LinearLayout
-            android:layout_weight="1"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-<!--            摄像头1-->
+            <!--            摄像头1-->
             <LinearLayout
-                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></LinearLayout>
+                android:layout_height="match_parent"
+                android:layout_weight="1"></LinearLayout>
 
-<!--            摄像头2-->
+            <!--            摄像头2-->
             <LinearLayout
-                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></LinearLayout>
+                android:layout_height="match_parent"
+                android:layout_weight="1"></LinearLayout>
 
         </LinearLayout>
 
 
         <LinearLayout
-            android:layout_weight="1"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
 
-<!--            摄像头3-->
+            <!--            摄像头3-->
             <LinearLayout
-                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></LinearLayout>
+                android:layout_height="match_parent"
+                android:layout_weight="1"></LinearLayout>
 
 
-<!--            摄像头4-->
+            <!--            摄像头4-->
             <LinearLayout
-                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></LinearLayout>
+                android:layout_height="match_parent"
+                android:layout_weight="1"></LinearLayout>
 
         </LinearLayout>
 
     </LinearLayout>
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!--    右边是控制-->
+    <!--    右边是控制-->
     <LinearLayout
-        android:layout_weight="3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:orientation="vertical">
 
+        <!--        标题-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.4">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="控制中心"
+                android:textColor="#000"
+                android:textSize="30sp">
+
+            </TextView>
+        </LinearLayout>
+
+        <!--        摄像头控制-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2">
+
+            <!--            上下左右-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <com.xuexiang.xui.widget.button.shadowbutton.ShadowButton
+                    android:id="@+id/sb_jia"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/jian"
+                    app:sb_radius="6dp" />
+
+                <com.dlong.rep.dlroundmenuview.DLRoundMenuView
+                    android:id="@+id/dl_rmv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="3"
+                    app:RMCoreMenuDrawable="@drawable/mid"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.xuexiang.xui.widget.button.shadowbutton.ShadowButton
+                    android:id="@+id/sb_jian"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/jia"
+                    app:sb_radius="6dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <!--       TODO 传感器控制-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <!--           TODO 滚动列表-->
+
+        </LinearLayout>
+
+
+        <!--       TODO 缩略图-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <!--           TODO 绝对布局?-->
+        </LinearLayout>
     </LinearLayout>
 
 
