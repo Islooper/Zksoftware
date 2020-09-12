@@ -29,13 +29,26 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"></LinearLayout>
+                android:layout_weight="1">
+
+                <SurfaceView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:id="@+id/sv_camera1"/>
+
+            </LinearLayout>
 
             <!--            摄像头2-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"></LinearLayout>
+                android:layout_weight="1">
+
+                <SurfaceView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:id="@+id/sv_camera2"/>
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -51,14 +64,25 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"></LinearLayout>
+                android:layout_weight="1">
+                <SurfaceView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:id="@+id/sv_camera3"/>
+            </LinearLayout>
 
 
             <!--            摄像头4-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"></LinearLayout>
+                android:layout_weight="1"
+                >
+                <SurfaceView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:id="@+id/sv_camera4"/>
+            </LinearLayout>
 
         </LinearLayout>
 
