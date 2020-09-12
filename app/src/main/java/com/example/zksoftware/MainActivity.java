@@ -1,6 +1,7 @@
 package com.example.zksoftware;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.SurfaceHolder;
@@ -19,6 +20,11 @@ public class MainActivity extends AppCompatActivity{
     private SurfaceHolder holder2;
     private SurfaceHolder holder3;
     private SurfaceHolder holder4;
+
+    /**
+     * 传感器列表
+     */
+    RecyclerView sensorList;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -125,6 +131,8 @@ public class MainActivity extends AppCompatActivity{
         camera2 = findViewById(R.id.sv_camera2);
         camera3 = findViewById(R.id.sv_camera3);
         camera4 = findViewById(R.id.sv_camera4);
+
+        sensorList = findViewById(R.id.sensor_list);
     }
 
 

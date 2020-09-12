@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        >
+
+      <LinearLayout
+          android:layout_weight="1"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+          <com.example.zksoftware.uiUtils.CircleImageView
+              android:id="@+id/ci_sensorIcon"
+              android:layout_width="100dp"
+              android:layout_height="100dp"
+              android:scaleType="centerCrop"
+              android:src="@drawable/sensor"
+              >
+          </com.example.zksoftware.uiUtils.CircleImageView>
+
+          <TextView
+              android:id="@+id/tv_sensorName"
+              android:layout_gravity="center"
+              android:gravity="center"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="传感器"
+              android:textSize="38sp"
+              android:textColor="#000"
+              android:textStyle="bold"
+              >
+          </TextView>
+      </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="2.5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.github.iielse.switchbutton.SwitchView
+                android:id="@+id/sv_isOpen"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
