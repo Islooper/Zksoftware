@@ -12,7 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zksoftware.R;
+import com.example.zksoftware.uiUtils.CircleImageView;
 import com.example.zksoftware.utils.Error;
+import com.github.iielse.switchbutton.SwitchView;
 
 import java.util.List;
 
@@ -48,8 +50,21 @@ public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.ViewHolder
 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
+        TextView sensorName;
+        CircleImageView sensorIcon;
+        SwitchView isOpen;
         public ViewHolder(View view){
             super(view);
+            // 找到items中的控件
+            findId(view);
+        }
+
+
+        public void findId(View view){
+            sensorName = view.findViewById(R.id.tv_sensorName);
+            sensorIcon = view.findViewById(R.id.ci_sensorIcon);
+            isOpen = view.findViewById(R.id.sv_isOpen);
+
 
         }
     }
