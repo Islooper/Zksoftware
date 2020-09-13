@@ -1,4 +1,4 @@
-package com.example.zksoftware.utils;
+package com.example.zksoftware.error;
 
 /**
  * Created by looper on 2020/9/12.

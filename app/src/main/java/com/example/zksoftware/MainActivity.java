@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity{
      * 传感器列表
      */
     RecyclerView sensorList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
