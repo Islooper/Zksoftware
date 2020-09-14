@@ -216,7 +216,6 @@ public class MainActivity extends AppCompatActivity {
         if (list == null){
             throw new IllegalArgumentException(Error.UNKOW_Para.getDescription());
         }
-        Log.e("sensors list.size = " , String.valueOf(list.size()));
         SensorAdapter adapter = new SensorAdapter(getApplicationContext() , list);
         sensorList.setAdapter(adapter);
         sensorList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));

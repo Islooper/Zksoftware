@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zksoftware.R;
 import com.example.zksoftware.bean.Sensor;
-import com.example.zksoftware.uiUtils.CircleImageView;
 import com.example.zksoftware.error.Error;
 import com.github.iielse.switchbutton.SwitchView;
 
