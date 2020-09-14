@@ -1,6 +1,7 @@
 package com.example.zksoftware;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.BroadcastReceiver;
@@ -12,8 +13,10 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import com.example.zksoftware.adapter.SensorAdapter;
 import com.example.zksoftware.bean.Sensor;
 import com.example.zksoftware.bean.SensorList;
+import com.example.zksoftware.error.Error;
 import com.example.zksoftware.utils.HttpUtils;
 
 import java.util.List;
@@ -210,6 +213,13 @@ public class MainActivity extends AppCompatActivity {
      * @param list : 传感器列表
      */
     public void packageSensors(List<Sensor> list){
+        if (list == null){
+            throw new IllegalArgumentException(Error.UNKOW_Para.getDescription());
+        }
+        Log.e("sensors list.size = " , String.valueOf(list.size()));
+        SensorAdapter adapter = new SensorAdapter(getApplicationContext() , list);
+        sensorList.setAdapter(adapter);
+        sensorList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
     }
 }

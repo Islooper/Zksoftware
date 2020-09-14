@@ -4,12 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zksoftware.R;
+import com.example.zksoftware.bean.Sensor;
 import com.example.zksoftware.uiUtils.CircleImageView;
 import com.example.zksoftware.error.Error;
 import com.github.iielse.switchbutton.SwitchView;
@@ -21,9 +23,9 @@ import java.util.List;
  */
 public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.ViewHolder> {
     public Context context;
-    public List<String> sensors;
+    public List<Sensor> sensors;
 
-    public SensorAdapter(Context context, List<String> sensors) {
+    public SensorAdapter(Context context, List<Sensor> sensors) {
         if (context == null || sensors == null) {
             throw new IllegalArgumentException(Error.UNKOW_Para.getDescription());
         }
@@ -38,38 +40,38 @@ public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.ViewHolder
     @NonNull
     @Override
     public SensorAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.sensor_items, parent, false);
-        return null;
+        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.sensor_items, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull SensorAdapter.ViewHolder holder, int position) {
+        holder.sensorName.setText(sensors.get(position).getSensorName());
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return sensors.size();
     }
-
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView sensorName;
-        CircleImageView sensorIcon;
+        ImageView sensorIcon;
         SwitchView isOpen;
 
         public ViewHolder(View view) {
             super(view);
             // 找到items中的控件
-            findId(view);
+//            findId(view);/
+            sensorName = view.findViewById(R.id.tv_sensorName);
+            sensorIcon = view.findViewById(R.id.ci_sensorIcon);
+            isOpen = view.findViewById(R.id.sv_isOpen);
         }
 
 
         public void findId(View view) {
 
-            sensorName = view.findViewById(R.id.tv_sensorName);
-            sensorIcon = view.findViewById(R.id.ci_sensorIcon);
-            isOpen = view.findViewById(R.id.sv_isOpen);
+
 
         }
     }

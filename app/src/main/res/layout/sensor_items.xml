@@ -17,14 +17,14 @@
           android:layout_weight="1"
           android:layout_width="match_parent"
           android:layout_height="match_parent">
-          <com.example.zksoftware.uiUtils.CircleImageView
+          <ImageView
               android:id="@+id/ci_sensorIcon"
               android:layout_width="100dp"
               android:layout_height="100dp"
               android:scaleType="centerCrop"
               android:src="@drawable/sensor"
               >
-          </com.example.zksoftware.uiUtils.CircleImageView>
+          </ImageView>
 
           <TextView
               android:id="@+id/tv_sensorName"
