@@ -33,7 +33,7 @@
 
                 <SurfaceView
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="match_parent"
                     android:id="@+id/sv_camera1"/>
 
             </LinearLayout>
@@ -46,7 +46,7 @@
 
                 <SurfaceView
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="match_parent"
                     android:id="@+id/sv_camera2"/>
             </LinearLayout>
 
@@ -67,7 +67,7 @@
                 android:layout_weight="1">
                 <SurfaceView
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="match_parent"
                     android:id="@+id/sv_camera3"/>
             </LinearLayout>
 
@@ -80,7 +80,7 @@
                 >
                 <SurfaceView
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="match_parent"
                     android:id="@+id/sv_camera4"/>
             </LinearLayout>
 
@@ -186,6 +186,12 @@
             android:layout_weight="1">
 
             <!--           TODO 绝对布局?-->
+            <ImageView
+                android:src="@drawable/bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </ImageView>
         </LinearLayout>
     </LinearLayout>
 
