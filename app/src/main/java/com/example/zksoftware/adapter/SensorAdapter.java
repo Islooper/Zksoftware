@@ -62,17 +62,10 @@ public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.ViewHolder
         public ViewHolder(View view) {
             super(view);
             // 找到items中的控件
-//            findId(view);/
             sensorName = view.findViewById(R.id.tv_sensorName);
             sensorIcon = view.findViewById(R.id.ci_sensorIcon);
             isOpen = view.findViewById(R.id.sv_isOpen);
         }
 
-
-        public void findId(View view) {
-
-
-
-        }
     }
 }
