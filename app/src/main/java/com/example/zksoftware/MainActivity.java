@@ -46,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
     public static final String BROADCAST_ACTION = "com.example.corn";
     private BroadcastReceiver mBroadcastReceiver;
 
+    /**
+     * 控制类传感器参数
+     */
+    String types = "80,81";
+    String place = "001";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         // 获取所有的传感器
         getAllSensors();
 
+        // 广播接受
         mBroadcastReceiver = new MyBroadcastReceiver();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(BROADCAST_ACTION);
@@ -73,9 +79,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void getAllSensors() {
         try {
-            HttpUtils.getAllSensors("80,81", "001");
-            //
-        } catch (IllegalArgumentException e) {
+            HttpUtils.getAllSensors(types, place);
+        } catch (IllegalArgumentException ignored) {
 
         }
     }
@@ -171,6 +176,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * 初始化控件
+     */
     private void initWidget() {
 
     }
@@ -179,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        // 注销广播
         unregisterReceiver(mBroadcastReceiver);
     }
 
@@ -206,6 +215,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
 
     /**
      * 渲染洁面传感器列表
