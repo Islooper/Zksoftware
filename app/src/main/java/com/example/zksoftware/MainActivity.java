@@ -20,7 +20,9 @@ import com.example.zksoftware.bean.SensorList;
 import com.example.zksoftware.controller.ControllerFactory;
 import com.example.zksoftware.controller.SensorController;
 import com.example.zksoftware.error.Error;
+import com.example.zksoftware.service.SensorService;
 import com.example.zksoftware.utils.HttpUtils;
+import com.example.zksoftware.utils.SensorConfig;
 
 import java.util.List;
 
@@ -53,8 +55,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * 控制类传感器参数
      */
-    String types = "80,81";
-    String place = "001";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getAllSensors() {
         try {
-            HttpUtils.getAllSensors(types, place);
+            HttpUtils.getAllSensors(SensorConfig.type, SensorConfig.place);
         } catch (IllegalArgumentException ignored) {
 
         }
@@ -187,6 +188,15 @@ public class MainActivity extends AppCompatActivity {
     private void initWidget() {
         // 初始化控制的实现类
         controller = ControllerFactory.createController("service");
+
+        // 启动读取传感器列表服务
+        onStartService();
+    }
+
+
+    private void onStartService(){
+        Intent intent = new Intent(MainActivity.this, SensorService.class);
+        startService(intent);
     }
 
 
@@ -234,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, Sensor sensor, boolean isOpen) {
                 // 判断开关状态 发送控制指令
-                if (!isOpen){
+                if (!isOpen) {
                     // 发送关闭的指令
                     controller.controller(sensor.getDevid() , sensor.getSensorId() , 0 , 1);
                 }else {
