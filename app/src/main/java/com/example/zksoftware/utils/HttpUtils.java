@@ -1,6 +1,7 @@
 package com.example.zksoftware.utils;
 
 import android.content.Intent;
+import android.util.Log;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.zksoftware.MainActivity;
@@ -13,8 +14,12 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.Callback;
 import com.zhy.http.okhttp.callback.StringCallback;
+
+import java.io.IOException;
 
 import static com.example.zksoftware.MainActivity.BROADCAST_ACTION;
 
@@ -38,7 +43,8 @@ public class HttpUtils {
                     }
 
                     @Override
-                    public void onResponse(String response) {
+                    public void onResponse(String response)
+                    {
                         JSONObject data = JSONObject.parseObject(response);
                         int code = data.getInteger("resultCode");
                         if (code == 0) {
@@ -57,6 +63,40 @@ public class HttpUtils {
                             sender.send("sensors","ok");
                         }
 
+                    }
+                });
+    }
+
+
+    /**
+     *
+     * @param devId 设备id
+     * @param sensorId 传感器id
+     * @param cmd 指令
+     * @param param 参数 默认为1
+     */
+    public void controlSensor(String devId ,String sensorId , int cmd , int param )
+    {
+        if (devId.isEmpty() || sensorId.isEmpty() || cmd == 0 || param == 0)
+        {
+            throw new IllegalArgumentException(Error.UNKOW_Para.getDescription());
+        }
+
+        OkHttpUtils.post().url(Url.URL_DEV + "control.do")
+                .addParams("gwid",devId)
+                .addParams("nodeid",sensorId)
+                .addParams("cmd", String.valueOf(cmd))
+                .addParams("param","1")
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Request request, Exception e) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e("control - result = " , response);
                     }
                 });
     }

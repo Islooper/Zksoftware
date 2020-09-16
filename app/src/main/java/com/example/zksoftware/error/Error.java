@@ -8,7 +8,7 @@ public enum Error implements INumberEnum {
 
     OK(0) {
         public String getDescription() {
-            return "成功";
+            return "success";
         }
     },
     UNKOW_Para(100) {

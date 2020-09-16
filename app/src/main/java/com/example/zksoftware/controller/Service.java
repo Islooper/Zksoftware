@@ -9,5 +9,6 @@ public class Service extends SensorController {
     @Override
     public void controller() {
         // TODO  通过接口控制传感器
+
     }
 }

@@ -8,6 +8,6 @@ package com.example.zksoftware.controller;
 public class Mqtt extends SensorController {
     @Override
     public void controller() {
-        // TODO mqtt控制的实现
+        // TODO mqtt 控制的实现
     }
 }

@@ -9,8 +9,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 
 import com.example.zksoftware.adapter.SensorAdapter;
 import com.example.zksoftware.bean.Sensor;
@@ -228,6 +230,18 @@ public class MainActivity extends AppCompatActivity {
         SensorAdapter adapter = new SensorAdapter(getApplicationContext() , list);
         sensorList.setAdapter(adapter);
         sensorList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-
+        adapter.setOnItemClickListener(new SensorAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, Sensor sensor, boolean isOpen) {
+                // 判断开关状态 发送控制指令
+                if (!isOpen){
+                    // 发送关闭的指令
+                    Log.e("send cmd " , "close");
+                }else {
+                    // 发送打开的指令
+                    Log.e("send cmd " , "open");
+                }
+            }
+        });
     }
 }

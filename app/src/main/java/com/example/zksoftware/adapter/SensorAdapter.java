@@ -1,6 +1,7 @@
 package com.example.zksoftware.adapter;
 
 import android.content.Context;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,13 +59,45 @@ public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.ViewHolder
         ImageView sensorIcon;
         SwitchView isOpen;
 
-        public ViewHolder(View view) {
+        public ViewHolder(final View view) {
             super(view);
             // 找到items中的控件
             sensorName = view.findViewById(R.id.tv_sensorName);
             sensorIcon = view.findViewById(R.id.ci_sensorIcon);
             isOpen = view.findViewById(R.id.sv_isOpen);
+
+            isOpen.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onItemClickListener!=null){
+                        onItemClickListener.onItemClick(view, sensors.get(getLayoutPosition()) , isOpen.isOpened());
+                    }
+                }
+            });
         }
 
+    }
+
+
+    //点击 RecyclerView 某条的监听
+    public interface OnItemClickListener{
+
+        /**
+         * 当RecyclerView某个被点击的时候回调
+         * @param view 点击item的视图
+         * @param sensor 点击得到的数据
+         */
+        void onItemClick(View view, Sensor sensor , boolean isOpen);
+
+    }
+
+    private OnItemClickListener onItemClickListener;
+
+    /**
+     * 设置RecyclerView某个的监听
+     * @param onItemClickListener
+     */
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+        this.onItemClickListener = onItemClickListener;
     }
 }
