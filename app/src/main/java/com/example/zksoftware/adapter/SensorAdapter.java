@@ -2,6 +2,7 @@ package com.example.zksoftware.adapter;
 
 import android.content.Context;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +47,6 @@ public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull SensorAdapter.ViewHolder holder, int position) {
         holder.sensorName.setText(sensors.get(position).getSensorName());
-
     }
 
     @Override

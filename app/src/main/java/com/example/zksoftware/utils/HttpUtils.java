@@ -75,9 +75,9 @@ public class HttpUtils {
      * @param cmd 指令
      * @param param 参数 默认为1
      */
-    public void controlSensor(String devId ,String sensorId , int cmd , int param )
+    public static void controlSensor(String devId ,String sensorId , int cmd , int param )
     {
-        if (devId.isEmpty() || sensorId.isEmpty() || cmd == 0 || param == 0)
+        if (devId.isEmpty() || sensorId.isEmpty()  || param == 0)
         {
             throw new IllegalArgumentException(Error.UNKOW_Para.getDescription());
         }

@@ -5,7 +5,7 @@ package com.example.zksoftware.bean;
  */
 public class Sensor {
 
-    String deviceId;
+    String devid;
     int id;
     String lastActive;
     double mapX;
@@ -14,17 +14,15 @@ public class Sensor {
     String place;
     String sensorId;
     String sensorName;
-    String sensortype;
     int type;
     String value;
 
-
-    public String getDeviceId() {
-        return deviceId;
+    public String getDevid() {
+        return devid;
     }
 
-    public void setDeviceId(String deviceId) {
-        this.deviceId = deviceId;
+    public void setDevid(String devid) {
+        this.devid = devid;
     }
 
     public int getId() {
@@ -89,14 +87,6 @@ public class Sensor {
 
     public void setSensorName(String sensorName) {
         this.sensorName = sensorName;
-    }
-
-    public String getSensortype() {
-        return sensortype;
-    }
-
-    public void setSensortype(String sensortype) {
-        this.sensortype = sensortype;
     }
 
     public int getType() {

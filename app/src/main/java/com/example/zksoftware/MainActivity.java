@@ -17,6 +17,8 @@ import android.view.View;
 import com.example.zksoftware.adapter.SensorAdapter;
 import com.example.zksoftware.bean.Sensor;
 import com.example.zksoftware.bean.SensorList;
+import com.example.zksoftware.controller.ControllerFactory;
+import com.example.zksoftware.controller.SensorController;
 import com.example.zksoftware.error.Error;
 import com.example.zksoftware.utils.HttpUtils;
 
@@ -178,11 +180,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    SensorController controller;
     /**
      * 初始化控件
      */
     private void initWidget() {
-
+        // 初始化控制的实现类
+        controller = ControllerFactory.createController("service");
     }
 
 
@@ -224,6 +228,7 @@ public class MainActivity extends AppCompatActivity {
      * @param list : 传感器列表
      */
     public void packageSensors(List<Sensor> list){
+
         if (list == null){
             throw new IllegalArgumentException(Error.UNKOW_Para.getDescription());
         }
@@ -236,10 +241,10 @@ public class MainActivity extends AppCompatActivity {
                 // 判断开关状态 发送控制指令
                 if (!isOpen){
                     // 发送关闭的指令
-                    Log.e("send cmd " , "close");
+                    controller.controller(sensor.getDevid() , sensor.getSensorId() , 0 , 1);
                 }else {
                     // 发送打开的指令
-                    Log.e("send cmd " , "open");
+                    controller.controller(sensor.getDevid() , sensor.getSensorId() , 1 , 1);
                 }
             }
         });
