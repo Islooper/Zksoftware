@@ -203,14 +203,9 @@ public class MainActivity extends AppCompatActivity {
      */
 
     class MyBroadcastReceiver extends BroadcastReceiver {
-
-        public static final String TAG = "MyBroadcastReceiver";
-
         @Override
         public void onReceive(Context context, Intent intent) {
-//            Log.w(TAG, "intent:" + intent);
             String value = intent.getStringExtra("sensors");
-//            Bundle bundle = intent.getExtras();
 
             // 接受数据成功数据
             assert value != null;
