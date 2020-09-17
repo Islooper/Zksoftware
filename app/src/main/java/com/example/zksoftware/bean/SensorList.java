@@ -42,4 +42,8 @@ public class SensorList {
     public List<Sensor> getList(){
         return sensors;
     }
+
+    public void removeAll (){
+        sensors.clear();
+    }
 }

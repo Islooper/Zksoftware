@@ -47,6 +47,9 @@ public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull SensorAdapter.ViewHolder holder, int position) {
         holder.sensorName.setText(sensors.get(position).getSensorName());
+        if (sensors.get(position).getValue().equals("1")){
+            holder.isOpen.setOpened(true);
+        }
     }
 
     @Override

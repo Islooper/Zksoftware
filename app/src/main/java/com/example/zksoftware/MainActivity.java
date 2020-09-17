@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getAllSensors() {
         try {
-            HttpUtils.getAllSensors(SensorConfig.type, SensorConfig.place);
+            HttpUtils.getAllSensors(SensorConfig.type, SensorConfig.place ,1);
         } catch (IllegalArgumentException ignored) {
 
         }
@@ -217,13 +217,17 @@ public class MainActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             String value = intent.getStringExtra("sensors");
 
+            SensorList sensorList = SensorList.getInstance();
             // 接受数据成功数据
             assert value != null;
-            if (value.equals("ok")){
-               // 渲染传感器列表
-                SensorList sensorList = SensorList.getInstance();
-                packageSensors(sensorList.getList());
+            switch (value){
+                case "ok":
+                    // 渲染传感器列表
+                case "refresh":
+                    packageSensors(sensorList.getList());
+                    break;
             }
+
         }
     }
 
@@ -253,5 +257,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        adapter.notifyItemRangeInserted(0 , list.size());
     }
 }

@@ -28,7 +28,7 @@ import static com.example.zksoftware.MainActivity.BROADCAST_ACTION;
  */
 public class HttpUtils {
 
-    public static void getAllSensors(String types, final String place) {
+    public static void getAllSensors(String types, final String place , final int use ) {
         if (types.isEmpty()) {
             throw new IllegalArgumentException(Error.UNKOW_Para.getDescription());
         }
@@ -53,14 +53,23 @@ public class HttpUtils {
                             JsonArray jsonArray = parser.parse(sensors).getAsJsonArray();
                             Gson gson = new Gson();
                             SensorList sensorList = SensorList.getInstance();
+                            sensorList.removeAll();
                             for (JsonElement sensor : jsonArray) {
                                 Sensor sensorDo = gson.fromJson(sensor, Sensor.class);
                                 sensorList.addSensor(sensorDo);
                             }
 
+                            // 根据用途不同发送不同的广播
                             // 发送数据成功广播
                             BroadcastSender sender = new BroadcastSender();
-                            sender.send("sensors","ok");
+                            switch (use){
+                                case 1:
+                                    sender.send("sensors","ok");
+                                    break;
+                                case 2:
+                                    sender.send("sensors","refresh");
+                                    break;
+                            }
                         }
 
                     }
