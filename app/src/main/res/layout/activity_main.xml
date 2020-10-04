@@ -93,7 +93,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3"
+        android:layout_weight="2.5"
         android:orientation="vertical">
 
         <!--        标题-->
@@ -118,7 +118,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1.2">
+            android:layout_weight="1.1">
 
             <!--            上下左右-->
 
@@ -135,20 +135,16 @@
                     android:layout_margin="16dp"
                     android:layout_weight="1"
                     android:background="@drawable/jian"
+                    android:baselineAligned="false"
                     app:sb_radius="6dp" />
 
                 <com.dlong.rep.dlroundmenuview.DLRoundMenuView
                     android:id="@+id/dl_rmv"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginEnd="10dp"
                     android:layout_weight="3"
                     app:RMCoreMenuDrawable="@drawable/mid"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    tools:ignore="MissingClass" />
 
                 <com.xuexiang.xui.widget.button.shadowbutton.ShadowButton
                     android:id="@+id/sb_jian"
@@ -158,18 +154,17 @@
                     android:layout_margin="16dp"
                     android:layout_weight="1"
                     android:background="@drawable/jia"
-                    app:sb_radius="6dp" />
+                    app:sb_radius="6dp"
+                    tools:ignore="MissingClass" />
             </LinearLayout>
         </LinearLayout>
 
 
-        <!--       TODO 传感器控制-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <!--           TODO 滚动列表-->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/sensor_list"
                 android:layout_width="match_parent"
@@ -179,20 +174,94 @@
         </LinearLayout>
 
 
-        <!--       TODO 缩略图-->
-        <LinearLayout
+
+
+        <AbsoluteLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/bg"
             android:layout_weight="1">
 
-            <!--           TODO 绝对布局?-->
+<!--            音响1号-->
             <ImageView
-                android:src="@drawable/bg"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
+                android:layout_x="50dp"
+                android:src="@drawable/audio"
+                android:layout_width="25dp"
+                android:layout_height="25dp">
             </ImageView>
-        </LinearLayout>
+
+
+            <!--            音响2号-->
+            <ImageView
+                android:layout_y="50dp"
+                android:src="@drawable/audio"
+                android:layout_width="25dp"
+                android:layout_height="25dp">
+            </ImageView>
+
+
+            <!--            音响3号-->
+            <ImageView
+                android:layout_x="150dp"
+                android:layout_y="10dp"
+                android:src="@drawable/audio_open"
+                android:layout_width="25dp"
+                android:layout_height="25dp">
+            </ImageView>
+
+
+<!--            灯1-->
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/lamp"
+                android:layout_y="150dp"
+                android:layout_x="10dp"
+                >
+            </ImageView>
+
+
+            <!--            灯2-->
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/lamp"
+                android:layout_y="150dp"
+                android:layout_x="110dp"
+                >
+            </ImageView>
+
+            <!--            灯3-->
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/lamp_open"
+                android:layout_y="100dp"
+                android:layout_x="110dp"
+                >
+            </ImageView>
+
+            <!--            灯2-->
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/lamp_open"
+                android:layout_y="100dp"
+                android:layout_x="20dp"
+                >
+            </ImageView>
+
+
+            <!--            灯2-->
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/lamp_open"
+                android:layout_y="100dp"
+                android:layout_x="180dp"
+                >
+            </ImageView>
+        </AbsoluteLayout>
     </LinearLayout>
 
 

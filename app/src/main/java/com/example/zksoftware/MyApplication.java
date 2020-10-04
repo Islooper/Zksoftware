@@ -1,5 +1,6 @@
 package com.example.zksoftware;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 
@@ -9,6 +10,7 @@ import com.xuexiang.xui.XUI;
  * Created by looper on 2020/9/7.
  */
 public class MyApplication extends Application {
+    @SuppressLint("StaticFieldLeak")
     private static Context mContext;
     @Override
     public void onCreate() {
@@ -17,6 +19,7 @@ public class MyApplication extends Application {
         XUI.debug(true);  //开启UI框架调试日志
 
         mContext = this;
+
     }
 
     public static Context getmContext(){
