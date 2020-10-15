@@ -5,5 +5,5 @@ package com.example.zksoftware.utils;
  */
 public class SensorConfig {
     public static String place = "001";
-    public static String type = "80,81";
+    public static String type = "49,50";
 }

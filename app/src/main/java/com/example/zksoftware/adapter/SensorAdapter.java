@@ -59,14 +59,12 @@ public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView sensorName;
-        ImageView sensorIcon;
         SwitchView isOpen;
 
         public ViewHolder(final View view) {
             super(view);
             // 找到items中的控件
             sensorName = view.findViewById(R.id.tv_sensorName);
-            sensorIcon = view.findViewById(R.id.ci_sensorIcon);
             isOpen = view.findViewById(R.id.sv_isOpen);
 
             isOpen.setOnClickListener(new View.OnClickListener() {

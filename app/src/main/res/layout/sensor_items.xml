@@ -17,23 +17,17 @@
           android:layout_weight="1"
           android:layout_width="match_parent"
           android:layout_height="match_parent">
-          <ImageView
-              android:id="@+id/ci_sensorIcon"
-              android:layout_width="100dp"
-              android:layout_height="100dp"
-              android:scaleType="centerCrop"
-              android:src="@drawable/device"
-              >
-          </ImageView>
+
 
           <TextView
+              android:layout_marginLeft="30dp"
               android:id="@+id/tv_sensorName"
               android:layout_gravity="center"
               android:gravity="center"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:text="传感器"
-              android:textSize="38sp"
+              android:textSize="27sp"
               android:textColor="#000"
               android:textStyle="bold"
               >
@@ -41,7 +35,7 @@
       </LinearLayout>
 
         <LinearLayout
-            android:layout_weight="2.5"
+            android:layout_weight="7"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <com.github.iielse.switchbutton.SwitchView

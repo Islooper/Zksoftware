@@ -52,4 +52,8 @@ dependencies {
 
     // fastjson
     implementation 'com.alibaba:fastjson:1.1.55.android'
+
+    /*萤石SDK核心模块，必须依赖*/
+    implementation 'com.ezviz.sdk:ezviz-sdk:4.12.0'
+
 }

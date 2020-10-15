@@ -30,7 +30,6 @@ public class SensorService extends Service {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             public void run() {
-                Log.e("before service http" , "123");
                 getSensorStatus();
             }
         }, 1000,1500);

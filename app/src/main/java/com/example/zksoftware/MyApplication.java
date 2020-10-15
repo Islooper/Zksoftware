@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 
+import com.videogo.openapi.EZOpenSDK;
 import com.xuexiang.xui.XUI;
 
 /**
@@ -12,6 +13,8 @@ import com.xuexiang.xui.XUI;
 public class MyApplication extends Application {
     @SuppressLint("StaticFieldLeak")
     private static Context mContext;
+    String appKey = "a550895fa82d400aaf75b3d3e3f814a7";
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -20,9 +23,17 @@ public class MyApplication extends Application {
 
         mContext = this;
 
+        /** * sdk日志开关，正式发布需要去掉 */
+        EZOpenSDK.showSDKLog(true);
+        /** * 设置是否支持P2P取流,详见api */
+        EZOpenSDK.enableP2P(false);
+
+        /** * APP_KEY请替换成自己申请的 */
+        EZOpenSDK.initLib(this, appKey);
+
     }
 
-    public static Context getmContext(){
+    public static Context getmContext() {
         return mContext;
     }
 }
